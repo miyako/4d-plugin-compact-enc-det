@@ -1,0 +1,11 @@
+{
+    "name": "Compact Encoding Detection",
+    "id": 20000,
+    "commands": [
+        {
+            "theme": "Compact Encoding Detection",
+            "syntax": "CED Detect encoding(&O;&J):J",
+            "threadSafe": true
+        }
+    ]
+}
