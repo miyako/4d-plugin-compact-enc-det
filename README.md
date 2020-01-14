@@ -11,7 +11,4 @@ Detect text encoding using [CED](https://github.com/google/compact_enc_det).
 spctl -a -vv -t install Compact Encoding Detection.bundle: accepted
 source=Notarized Developer ID
 origin=Developer ID Application: keisuke miyako (Y69CWUC25B)
-MacBook-Pro-2019:~ miyako$ 
-
-
 ```
