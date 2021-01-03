@@ -1,14 +1,11 @@
+![platform](https://img.shields.io/static/v1?label=platform&message=osx-64%20|%20win-32%20|%20win-64&color=blue)
+![version](https://img.shields.io/badge/version-17%2B-3E8B93)
+[![license](https://img.shields.io/github/license/miyako/
+4d-plugin-compact-enc-det)](LICENSE)
+![downloads](https://img.shields.io/github/downloads/miyako/
+4d-plugin-compact-enc-det/total)
+
 # 4d-plugin-compact-enc-det
 Detect text encoding using [CED](https://github.com/google/compact_enc_det).
 
-### Platform
-
-| carbon | cocoa | win32 | win64 |
-|:------:|:-----:|:---------:|:---------:|
-||<img src="https://cloud.githubusercontent.com/assets/1725068/22371562/1b091f0a-e4db-11e6-8458-8653954a7cce.png" width="24" height="24" />|<img src="https://cloud.githubusercontent.com/assets/1725068/22371562/1b091f0a-e4db-11e6-8458-8653954a7cce.png" width="24" height="24" />|<img src="https://cloud.githubusercontent.com/assets/1725068/22371562/1b091f0a-e4db-11e6-8458-8653954a7cce.png" width="24" height="24" />|
-
-```
-spctl -a -vv -t install Compact Encoding Detection.bundle: accepted
-source=Notarized Developer ID
-origin=Developer ID Application: keisuke miyako (Y69CWUC25B)
-```
+To use on v17, move manifest.json to contents.
