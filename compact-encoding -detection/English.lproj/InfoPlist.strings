@@ -1,1 +1,1 @@
-/* Localized versions of Info.plist keys */CFBundleName = "Compact Encoding Detection";CFBundleShortVersionString = "1.0";CFBundleGetInfoString = "Compact Encoding Detection version 1.0, Copyright 2020 miyako.";
+/* Localized versions of Info.plist keys */CFBundleName = "Compact Encoding Detection";CFBundleShortVersionString = "1.0.2";CFBundleGetInfoString = "Compact Encoding Detection version 1.0.2, Copyright 2020 miyako.";
