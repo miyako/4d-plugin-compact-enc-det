@@ -7,3 +7,7 @@
 
 # 4d-plugin-compact-enc-det
 Detect text encoding using [CED](https://github.com/google/compact_enc_det).
+
+### Syntax
+
+[miyako.github.io](https://miyako.github.io/2020/01/14/4d-plugin-compact-enc-det.html)
