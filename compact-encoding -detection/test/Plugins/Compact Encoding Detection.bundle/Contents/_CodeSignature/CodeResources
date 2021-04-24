@@ -8,7 +8,7 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			k+fzYshABTRafDRFS4Qz6TlGvv4=
+			J1ao5EDmTvV02WXDKH3INoYW45U=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -26,10 +26,6 @@
 	<dict>
 		<key>QuickLook/Thumbnail.png</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			hC+U8EqvyIRM1lLakHLfvl4V9Tc=
-			</data>
 			<key>hash2</key>
 			<data>
 			nGfrvibB5KlzvZgF4Bra+l0HpRloxismgTLePnOwCdk=
@@ -37,23 +33,15 @@
 		</dict>
 		<key>Resources/English.lproj/InfoPlist.strings</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			k+fzYshABTRafDRFS4Qz6TlGvv4=
-			</data>
 			<key>hash2</key>
 			<data>
-			5DApW7OiDpXd4Lf5r6vmxtrZcWEOIWtsD8ZDljsAu2g=
+			t5AcXppFsD9Rfchsw9haa++eav2HFqL7AEheaS14rOI=
 			</data>
 			<key>optional</key>
 			<true/>
 		</dict>
 		<key>Resources/constants.xlf</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			BFE+hF0w4RId1eqxy/CwhVMh8DI=
-			</data>
 			<key>hash2</key>
 			<data>
 			/1XkGlj12TIYetjiCnXTeTvB4KqyIZJf6NsNkLrj9pU=
@@ -61,32 +49,13 @@
 		</dict>
 		<key>Resources/manifest.json</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			zBioW298r1NagygX9tm5cFC00Yw=
-			</data>
 			<key>hash2</key>
 			<data>
 			TGYocjHne3N64UsuOF++GGQGaroCoYzLndVakBvjPSQ=
 			</data>
 		</dict>
-		<key>Windows/Compact Encoding Detection.4DX</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			ktxrHKYu07zLi152OAc+XwxPQFQ=
-			</data>
-			<key>hash2</key>
-			<data>
-			vDDazOwLPfbq0guClYvMK2oIdl9h8RkilETy1QpipmY=
-			</data>
-		</dict>
 		<key>Windows64/Compact Encoding Detection.4DX</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			9OCZwpSOuQf3LaWLkjIauMF/+eM=
-			</data>
 			<key>hash2</key>
 			<data>
 			+7Uc5LGDxgHh3arZpgj7lyHaCPX4YiQloeTFPmhe9tY=
