@@ -39,16 +39,33 @@ void CED_Detect_encoding(PA_PluginParameters params) {
     
     PA_ObjectRef returnValue = PA_CreateObject();
     
+    // The command body is wrapped in its own try/catch so that PA_ReturnObject
+    // is guaranteed to run on every path, including an exception thrown by
+    // std::vector's allocation (see the len > 0 note below) or by
+    // CompactEncDet::DetectEncoding itself. Without this, an exception here
+    // would propagate up to PluginMain's outer `catch(...) {}`, which has no
+    // return-value context -- the host would be left waiting for a return
+    // that never comes (a freeze), not a crash. On the caught path we still
+    // return whatever was already set on returnValue (typically nothing more
+    // than an empty object), which is a well-formed -- if uninformative --
+    // result rather than no result at all.
+    try {
+        
     void *bytes = NULL;
     PA_long32 len = PA_GetBlobParameter(params, 1, bytes);
     
-    if(len)
+    // len > 0 (not just "!= 0"): PA_GetBlobParameter's contract for an error
+    // return isn't documented as non-negative here, so a negative len must
+    // not be allowed to reach std::vector's (unsigned) size_type constructor
+    // below -- that implicit conversion would turn a small negative number
+    // into a huge allocation request (std::length_error/bad_alloc).
+    if(len > 0)
     {
         CompactEncDet::TextCorpusType corpus = CompactEncDet::WEB_CORPUS;
         bool ignore_7bit_mail_encodings = false;
-        char *httpCharsetHint = nullptr; CUTF8String _httpCharsetHint;
-        char *metaCharsetHint = nullptr; CUTF8String _metaCharsetHint;
-        char *urlHint = nullptr; CUTF8String _urlHint;
+        const char *httpCharsetHint = nullptr; CUTF8String _httpCharsetHint;
+        const char *metaCharsetHint = nullptr; CUTF8String _metaCharsetHint;
+        const char *urlHint = nullptr; CUTF8String _urlHint;
         
         PA_ObjectRef options = PA_GetObjectParameter(params, 2);
         
@@ -59,27 +76,27 @@ void CED_Detect_encoding(PA_PluginParameters params) {
             }
             
             if(ob_is_defined(options, L"httpCharsetHint")) {
-                if(ob_get_s(options, L"httpCharsetHint", &_httpCharsetHint)) {
-                    httpCharsetHint = (char *)_httpCharsetHint.c_str();
+                if(ob_get_a(options, L"httpCharsetHint", &_httpCharsetHint)) {
+                    httpCharsetHint = (const char *)_httpCharsetHint.c_str();
                 }
             }
             
             if(ob_is_defined(options, L"metaCharsetHint")) {
-                if(ob_get_s(options, L"metaCharsetHint", &_metaCharsetHint)) {
-                    metaCharsetHint = (char *)_metaCharsetHint.c_str();
+                if(ob_get_a(options, L"metaCharsetHint", &_metaCharsetHint)) {
+                    metaCharsetHint = (const char *)_metaCharsetHint.c_str();
                 }
             }
             
             if(ob_is_defined(options, L"urlHint")) {
-                if(ob_get_s(options, L"urlHint", &_urlHint)) {
-                    urlHint = (char *)_urlHint.c_str();
+                if(ob_get_a(options, L"urlHint", &_urlHint)) {
+                    urlHint = (const char *)_urlHint.c_str();
                 }
             }
             
             if(ob_is_defined(options, L"corpus")) {
                 
                 CUTF8String _corpus;
-                if(ob_get_s(options, L"corpus", &_corpus)) {
+                if(ob_get_a(options, L"corpus", &_corpus)) {
                     if(_corpus == (const uint8_t *)"WEB_CORPUS") {
                         corpus = CompactEncDet::WEB_CORPUS;
                     }else
@@ -351,8 +368,24 @@ void CED_Detect_encoding(PA_PluginParameters params) {
                 ob_set_s(returnValue, L"encoding", "SOFTBANK_ISO_2022_JP");
                 break;
             default:
+                // Every case above sets "encoding" explicitly, including the
+                // library's own UNKNOWN_ENCODING case -- this default only
+                // covers a future Encoding value CompactEncDet adds that
+                // isn't in this switch yet. Previously left the key out of
+                // the object entirely in that situation.
+                ob_set_s(returnValue, L"encoding", "UNKNOWN_ENCODING");
                 break;
         }
+    }
+    
+    } catch(...) {
+        // Swallow here too, but -- unlike PluginMain's outer catch(...) --
+        // this one is followed immediately by the return call below, so the
+        // host still gets a well-formed (if partial) result instead of
+        // hanging. Not surfacing the specific exception to 4D as an error
+        // key is a deliberate scope decision, not an oversight -- flagged in
+        // the review as a possible follow-up if you want callers to be able
+        // to distinguish "unrecognized encoding" from "internal failure".
     }
     
     PA_ReturnObject(params, returnValue);
