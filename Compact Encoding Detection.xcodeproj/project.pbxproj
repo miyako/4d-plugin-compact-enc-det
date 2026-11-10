@@ -352,7 +352,7 @@
 				);
 				WRAPPER_EXTENSION = bundle;
 				ZERO_LINK = YES;
-				CURRENT_PROJECT_VERSION = 1.1.3;
+				CURRENT_PROJECT_VERSION = 1.1.5;
 			};
 			name = Development;
 		};
@@ -404,7 +404,7 @@
 				);
 				WRAPPER_EXTENSION = bundle;
 				ZERO_LINK = NO;
-				CURRENT_PROJECT_VERSION = 1.1.3;
+				CURRENT_PROJECT_VERSION = 1.1.5;
 			};
 			name = Deployment;
 		};
@@ -453,7 +453,7 @@
 					"-Wno-unknown-pragmas",
 				);
 				WRAPPER_EXTENSION = bundle;
-				CURRENT_PROJECT_VERSION = 1.1.3;
+				CURRENT_PROJECT_VERSION = 1.1.5;
 			};
 			name = Default;
 		};
@@ -502,7 +502,7 @@
 				SYMROOT = "$(SRCROOT)/test/Plugins";
 				USER_HEADER_SEARCH_PATHS = "include/**";
 				MARKETING_VERSION = 1.1.5;
-				CURRENT_PROJECT_VERSION = 1.1.3;
+				CURRENT_PROJECT_VERSION = 1.1.5;
 			};
 			name = Development;
 		};
@@ -551,7 +551,7 @@
 				SYMROOT = "$(SRCROOT)/test/Plugins";
 				USER_HEADER_SEARCH_PATHS = "include/**";
 				MARKETING_VERSION = 1.1.5;
-				CURRENT_PROJECT_VERSION = 1.1.3;
+				CURRENT_PROJECT_VERSION = 1.1.5;
 			};
 			name = Deployment;
 		};
@@ -599,7 +599,7 @@
 				SYMROOT = "$(SRCROOT)/test/Plugins";
 				USER_HEADER_SEARCH_PATHS = "include/**";
 				MARKETING_VERSION = 1.1.5;
-				CURRENT_PROJECT_VERSION = 1.1.3;
+				CURRENT_PROJECT_VERSION = 1.1.5;
 			};
 			name = Default;
 		};
